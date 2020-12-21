@@ -1,0 +1,31 @@
+body {
+  background-color: #c2ddff;
+  color: #fff3c2;
+  text-align: center;
+}
+
+#header {
+  background-color: #00509d;
+  border-radius: 20px;
+  margin: 100px 100px 0px 100px;
+}
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(4, 4fr);
+  grid-template-rows: repeat(3, minmax(200px, auto));
+  width: 600px;
+  margin: 0 auto;
+  grid-gap: 40px;
+}
+
+#cards div {
+  background: #00509d;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+button {
+  background: #add8ff;
+  margin: 10px;
+}
