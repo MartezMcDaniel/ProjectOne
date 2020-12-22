@@ -43,6 +43,9 @@ function startGame() {
         const back = this.querySelector('.card-back');
         back.style.display = 'none';
       })
+
+       // Adding the card back into the page
+       document.querySelector('#card-deck').appendChild(card);
   }
 
 }
