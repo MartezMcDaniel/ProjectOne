@@ -1,31 +1,52 @@
 body {
-  background-color: #c2ddff;
-  color: #fff3c2;
+  background-color: coral;
+}
+body h1 {
+  font-family: "Langar", cursive;
+  color: black;
   text-align: center;
 }
 
-#header {
-  background-color: #00509d;
-  border-radius: 20px;
-  margin: 100px 100px 0px 100px;
-}
-
-#cards {
+#card-deck {
   display: grid;
-  grid-template-columns: repeat(4, 4fr);
-  grid-template-rows: repeat(3, minmax(200px, auto));
-  width: 600px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  width: 500px;
   margin: 0 auto;
-  grid-gap: 40px;
+  grid-gap: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
 }
 
-#cards div {
-  background: #00509d;
-  padding: 50px;
-  border-radius: 20px;
+/* .card.turnOver {
+  transform: rotateY(180deg);
+} 
+animate property to flip cards over*/
+
+.start-game {
+  background: rgb(87, 85, 85);
+  margin: 0 auto;
+  margin-bottom: 40px;
+  display: block;
 }
 
-button {
-  background: #add8ff;
-  margin: 10px;
+.game-content {
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 30px;
+  margin: 50px;
+  font-family: "Langar", cursive;
+
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  background-color: brown;
+  backface-visibility: hidden;
+  cursor: pointer;
+}
+
+.card-front {
+  display: none;
 }

@@ -1,21 +1,71 @@
 
+//make start button clickable to start game
+document.querySelector('.start-game').addEventListener('click', startGame);
 
 
-//          MVP GOALS
-// Make Start Game button clickable to begin game
-// //create click events with individual cards
-// When the Start Button is clicked start the timer
-// Make cards clickable
-//When cards are clicked flip over to reveal pictures
-// Leave one card flipped, and if second flipped card doesnt match turn them both back over
-    // If the two cards match flip the both back over 
-// Make restart game button clickable
-//When restart button is clicked start game over
-// Alert player when they have won the game!
+// Using the fisher yates shuffle to randomizes my card array (card deck id)  
+function yatesShuffle(cards) {
+  var currentIndex = cards.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = cards[currentIndex];
+    cards[currentIndex] = cards[randomIndex];
+    cards[randomIndex] = temporaryValue;
+  }
+  return cards;
+  // this returns shuffled deck of cards
+}
 
 
-//        STRETCH GOALSs
-// Keep track of players score 
-// use input to take players name and return it in the game 
-//Add API of old school classic game show hosts/ game show style
-//send winning cards to a deck
+//create a fucntion (startGame) that grabs cards from html
+
+function startGame() {
+  const cards = document.querySelectorAll('.card');
+  //console.log(cards);
+
+  // Convert the cards to an array
+  const Arr = Array.from(cards);
+  //shuffle array with yates shuffle function
+  const shuffledCards = yatesShuffle(Arr);
+
+    // Add the shuffled cards back in 
+  for (let i = 0; i < shuffledCards.length; i++) {
+      const card = shuffledCards[i];
+
+      // Enabling click for each of the cards
+      card.addEventListener('click', function() {
+        // Display the front
+        const front = this.querySelector('.card-front');
+        front.style.display = 'block';
+
+        // Hide the back
+        const back = this.querySelector('.card-back');
+        back.style.display = 'none';
+      })
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
