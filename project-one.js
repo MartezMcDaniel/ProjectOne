@@ -1,7 +1,9 @@
 
 //make start button clickable to start game
 document.querySelector('.start-game').addEventListener('click', startGame);
-
+let numCards = 0;
+let prevCard = null;
+let secondCard = null;
 
 // Using the fisher yates shuffle to randomizes my card array (card deck id)  
 function yatesShuffle(cards) {
@@ -34,41 +36,49 @@ function startGame() {
       const card = shuffledCards[i];
 
       // Enabling click for each of the cards
-      card.addEventListener('click', function() {
-        // Display the front
-        const front = this.querySelector('.card-front');
-        front.style.display = 'block';
+      card.addEventListener('click',cardClicked)
+      //   // Display the front
+      //   const front = this.querySelector('.card-front');
+      //   front.style.display = 'block';
 
-        // Hide the back
-        const back = this.querySelector('.card-back');
-        back.style.display = 'none';
-      })
+      //   // Hide the back
+      //   const back = this.querySelector('.card-back');
+      //   back.style.display = 'none';
+      // })
 
        // Adding the card back into the page
        document.querySelector('#card-deck').appendChild(card);
-  }
+  
 
+  }
+function cardClicked() {
+  if (numCards === 0){
+    numCards = 1
+    prevCard = this 
+  }
+  else if (numCards === 1){
+    numCards = 2
+    secondCard = this
+}
+  else if (numCards === 2){
+    numCards = 0
+    const front = prevCard.querySelector('.card-front');
+    front.style.display = 'none';
+
+    // Hide the back
+    const back = prevCard.querySelector('.card-back');
+    back.style.display = 'block';
+console.log('this should be reseting')
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(numCards);
+          // Display the front
+          const front = this.querySelector('.card-front');
+          front.style.display = 'block';
+  
+          // Hide the back
+          const back = this.querySelector('.card-back');
+          back.style.display = 'none';
+  
+}  
+}
