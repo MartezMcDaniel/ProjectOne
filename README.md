@@ -15,5 +15,6 @@ My project is a Bob's Burgers themed match up game. The object of the game is to
 No installation required
 To play got to: 
 
-### Sketch
-![image](
+### Wireframes
+![image](https://media.git.generalassemb.ly/user/32792/files/ea3fb500-407f-11eb-8eba-4f27062689d9)
+
